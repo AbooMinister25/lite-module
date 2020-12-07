@@ -1,10 +1,76 @@
-Metadata-Version: 1.0
+Metadata-Version: 2.1
 Name: lite-module
 Version: 0.0.1
 Summary: Python package for creating Lite modules
-Home-page: UNKNOWN
+Home-page: https://github.com/AbooMinister25/lite-module
 Author: Rayyan Cyclegar
 Author-email: aboominister@gmail.com
 License: MIT
-Description: UNKNOWN
+Description: # Lite Module v.0.0.1
+        
+        The Lite Module is a python library used for creating and registering third party package for the Lite programming lanugage third party library.
+        
+        ## Installation
+        You can install this library using `pip`. In windows you would do
+        ```
+        py -m pip install lite
+        ```
+        And in linux and mac you would do
+        ```
+        pip3 install lite
+        ```
+        
+        ## Usage
+        Using this module is pretty straightforward. You should have the following file structure.
+        ```
+        Directory Name
+        ├── main.py
+        ├── modulename.py
+        ```
+        You can name the directory and `main.py` file whatever you like, it won't affect anything, but the file with your module code in it has to have the same name as the module. Now, open `main.py` and import the Lite library.
+        ```py
+        import lite
+        ```
+        Once `lite` is imported, you can then call the `Setup` class as the following.
+        ```py
+        import lite
+        
+        setup = lite.Setup(
+            modulename,
+            author,
+            description, 
+            version,
+            filename
+        )
+        ```
+        This will create a `Setup` object, which you can then use to register your library. For the arguments, just fill in the name of your module, the author, the description of the module, the version of the module, and lastly, the path of the second `.py` file you created with the name of your module. Once this is done, open your other `.py` file, and start writing whatever functions and classes you want in your library, just write it is as a typical python module. See our example below.
+        ```py
+        #testmodule.py
+        def test():
+            print("Test!") 
+        ```
+        Once your done, go back to your other file, the one with the setup script in it, and add the following lines of code.
+        ```py
+        setup.register()
+        ```
+        The above will then register your module to the third party library collection, and will then be able to be installed by the `ice` package manager for `Lite`. Once your done, you should have something like the following code in your setup file.
+        ```py
+        import lite
+        
+        setup = lite.Setup(
+            "testmodule",
+            "Rayyan Cyclegar",
+            "A test module for Lite", 
+            "0.0.1",
+            "testpackage/testmodule.py"
+        )
+        
+        setup.register()
+        ```
+        Now, run the setup file, you should get something like the following in your terminal.
+        ```
+        Module testmodule successfully registered!
+        ```
+        If you got the above output, congratulations, you did it! Your module has been created and registerd, and is now available for use. If you didn't, make sure to look back in your code and try and debug. Remember to report any bugs in the github, and feel free to open an issue.
 Platform: UNKNOWN
+Description-Content-Type: text/markdown
