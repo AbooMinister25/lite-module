@@ -1,0 +1,7 @@
+setup.py
+lite/__init__.py
+lite_module.egg-info/PKG-INFO
+lite_module.egg-info/SOURCES.txt
+lite_module.egg-info/dependency_links.txt
+lite_module.egg-info/not-zip-safe
+lite_module.egg-info/top_level.txt
